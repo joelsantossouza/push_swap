@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_top.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/03 18:48:55 by joesanto         ###   ########.fr       */
+/*   Created: 2025/12/03 18:33:06 by joesanto          #+#    #+#             */
+/*   Updated: 2025/12/03 18:44:35 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <stddef.h>
-
-// PARSING
-int	parse_stack(size_t size, int stack[size], char **numbers);
-
-// INSTRUCTIONS
-void	rotate(size_t size, int stack[size]);
-void	push_top(size_t dst_size, int dst[dst_size], size_t src_size, int src[src_size]);
-
-// SORTING
-void	turk_algorithmn(size_t size, int stack_a[size], int stack_b[size]);
-
-#endif
+void	push_top(size_t dst_size, int dst[dst_size], size_t src_size, int src[src_size])
+{
+	if (!src_size)
+		return ;
+	rotate(dst_size + 1, dst);
+	dst[0] = src[0];
+}
