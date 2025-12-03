@@ -6,7 +6,7 @@
 #    By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 18:19:34 by joesanto          #+#    #+#              #
-#    Updated: 2025/12/03 13:16:20 by joesanto         ###   ########.fr        #
+#    Updated: 2025/12/03 17:56:37 by joesanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,15 @@ SRCS_DIR = srcs
 PARSING_DIR = $(SRCS_DIR)/parsing
 PARSING = $(PARSING_DIR)/parse_stack.c
 
+SORTING_DIR = $(SRCS_DIR)/sorting
+SORTING = $(SORTING_DIR)/turk_algorithmn.c
+
 MAIN = $(SRCS_DIR)/main.c
 
 HEADERS_DIR = includes
 HEADERS = $(HEADERS_DIR)/push_swap.h
 
-OBJS = $(MAIN:.c=.o) $(PARSING:.c=.o)
+OBJS = $(MAIN:.c=.o) $(PARSING:.c=.o) $(SORTING:.c=.o)
 LIBS_DIR = libs
 LIBFT = $(LIBS_DIR)/libft/libft.a
 INCLUDES = $(addprefix -I, $(LIBS_DIR)/libft $(HEADERS_DIR))

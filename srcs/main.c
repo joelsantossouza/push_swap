@@ -6,9 +6,12 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:06:39 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/03 13:25:32 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:55:25 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
@@ -20,10 +23,7 @@ int	main(int argc, char **argv)
 	#include <stdio.h>
 	if (parse_stack(argc - 1, stack_a, argv + 1) < 0)
 		return (free(stack_a), fprintf(stderr, "Error\n"), 3);
-	int	i;
-	i = -1;
-	while (++i < argc - 1)
-		printf("%d\n", stack_a[i]);
+	turk_algorithmn(argc - 1, stack_a, stack_a);
 	free(stack_a);
 	return (0);
 }
