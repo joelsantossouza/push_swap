@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/03 18:48:55 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/03 19:33:48 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 # include <stddef.h>
 
 // PARSING
-int	parse_stack(size_t size, int stack[size], char **numbers);
+int		parse_stack(size_t size, int stack[size], char **numbers);
 
 // INSTRUCTIONS
-void	rotate(size_t size, int stack[size]);
-void	push_top(size_t dst_size, int dst[dst_size], size_t src_size, int src[src_size]);
+void	rotate_a(size_t size_a, int stack_a[size_a]);
+void	rotate_b(size_t size_b, int stack_b[size_b]);
+void	push_to_a(size_t *size_a, int stack_a[*size_a], size_t *size_b, int stack_b[*size_b]);
+void	push_to_b(size_t *size_b, int stack_b[*size_b], size_t *size_a, int stack_a[*size_a]);
 
 // SORTING
-void	turk_algorithmn(size_t size, int stack_a[size], int stack_b[size]);
+void	turk_algorithmn(size_t size_a, int stack_a[size_a], size_t size_b, int stack_b[size_b]);
 
 #endif

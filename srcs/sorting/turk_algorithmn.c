@@ -6,11 +6,11 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/03 18:30:53 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/03 19:34:17 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "push_swap.h"
 
 static inline
 size_t	stack_insertion_finder(int insert, size_t size, int stack[size])
@@ -44,7 +44,23 @@ size_t	stack_insertion_cost(size_t	dst, size_t	src, size_t dst_size, size_t src_
 	return (insertion_cost);
 }
 
-void	turk_algorithmn(size_t size, int stack_a[size], int stack_b[size])
+void	turk_algorithmn(size_t size_a, int stack_a[size_a], size_t size_b, int stack_b[size_b])
 {
-	push_top(stack_b, stack_a);
+	push_to_b(&size_b, stack_b, &size_a, stack_a);
+	push_to_b(&size_b, stack_b, &size_a, stack_a);
+	#include <stdio.h>
+	size_t	i = -1;
+	while (++i < size_a || i < size_b)
+	{
+		printf("[%lu] ", i);
+		if (i < size_a)
+			printf("%3d ", stack_a[i]);
+		else
+			printf(" -  ");
+		if (i < size_b)
+			printf("%3d ", stack_b[i]);
+		else
+			printf(" -  ");
+		printf("\n");
+	}
 }
