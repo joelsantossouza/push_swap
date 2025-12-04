@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 17:16:47 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 20:31:00 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <stddef.h>
 
-# define BELOW	0
-# define ABOVE	1
+# define CLOSEST_LESS		0
+# define CLOSEST_GREATER	1
 
 typedef struct s_stack
 {
