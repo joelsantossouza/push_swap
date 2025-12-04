@@ -6,7 +6,7 @@
 #    By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 18:19:34 by joesanto          #+#    #+#              #
-#    Updated: 2025/12/04 13:13:18 by joesanto         ###   ########.fr        #
+#    Updated: 2025/12/04 15:26:57 by joesanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,15 @@ PARSING_DIR = $(SRCS_DIR)/parsing
 PARSING = $(PARSING_DIR)/parse_stack.c
 
 SORTING_ALGORITHMN_DIR = $(SRCS_DIR)/sorting_algorithmn
-SORTING_ALGORITHMN = $(SORTING_ALGORITHMN_DIR)/turk_algorithmn.c
+SORTING_ALGORITHMN = $(SORTING_ALGORITHMN_DIR)/turk_sort_algorithmn.c
 
 INSTRUCTIONS_DIR = $(SRCS_DIR)/instructions
-INSTRUCTIONS = $(addprefix $(INSTRUCTIONS_DIR)/, rotate.c reverse_rotate.c push_to.c rotate_to_top.c)
+INSTRUCTIONS = $(addprefix $(INSTRUCTIONS_DIR)/, rotate.c reverse_rotate.c push_to.c \
+			   swap_top.c rotate_to_top.c)
 
 STACK_INSERTION_DIR = $(SRCS_DIR)/stack_insertion
-STACK_INSERTION = $(addprefix $(STACK_INSERTION_DIR)/, stack_insertion_finder.c stack_insertion_align.c)
+STACK_INSERTION = $(addprefix $(STACK_INSERTION_DIR)/, stack_insertion_finder.c \
+				  stack_insertion_align.c)
 
 COST_DIR = $(SRCS_DIR)/cost
 COST = $(addprefix $(COST_DIR)/, rotate_to_top_cost.c stack_insertion_cost.c)

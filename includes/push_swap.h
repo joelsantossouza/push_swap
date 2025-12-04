@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 13:03:05 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:23:48 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef void (*align_to_top)(size_t, t_stack *, size_t, t_stack *);
 int		parse_stack(t_stack *stack, char **numbers);
 
 // INSTRUCTIONS
+int		swap_top(const char *motion, t_stack *stack);
 int		push_to(const char *motion, t_stack *dst, t_stack *src);
 int		rotate(const char *motion, t_stack *stack, size_t times);
 int		rrotate(t_stack *stack_a, t_stack *stack_b, size_t times);
@@ -48,5 +49,6 @@ size_t	stack_insertion_finder(int insert, t_stack *stack);
 void	stack_insertion_align(size_t idx_a, t_stack *stack_a, size_t idx_b, t_stack *stack_b);
 
 // SORTING ALGORITHMN
+void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b);
 
 #endif

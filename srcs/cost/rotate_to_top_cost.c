@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 10:29:41 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 11:22:09 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:47:20 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,18 @@ size_t	sync_rotate_down_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t s
 {
 	size_t	cost;
 
-	if (idx_b && idx_a > idx_b)
+	if (!idx_a || !idx_b)
+		cost = 0;
+	else if (idx_a > idx_b)
 	{
-		cost = (size_a - idx_a) % size_a;
-		idx_b += (size_a - idx_a) % size_a;
+		cost = size_a - idx_a;
+		idx_b = (size_a - idx_a + idx_b) % size_b;
 		idx_a = 0;
 	}
 	else
 	{
-		cost = (size_b - idx_b) % size_b;
-		idx_a += (size_b - idx_b) % size_b;
+		cost = size_b - idx_b;
+		idx_a = (size_b - idx_b + idx_a) % size_a;
 		idx_b = 0;
 	}
 	return (cost + rotate_to_top_cost(idx_a, size_a, idx_b, size_b));

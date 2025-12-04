@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 10:27:41 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 12:48:33 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:49:27 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,18 @@ void	sync_rotate_down(size_t idx_a, t_stack *stack_a, size_t idx_b, t_stack *sta
 	const size_t	size_a = stack_a->size;
 	const size_t	size_b = stack_b->size;
 
-	if (idx_b && idx_a > idx_b)
+	if (!idx_a || !idx_b)
+		return ;
+	else if (idx_a > idx_b)
 	{
-		rreverse_rotate(stack_a, stack_b, (size_a - idx_a) % size_a);
-		idx_b += (size_a - idx_a) % size_a;
+		rreverse_rotate(stack_a, stack_b, size_a - idx_a);
+		idx_b = (size_a - idx_a + idx_b) % size_b;
 		idx_a = 0;
 	}
 	else
 	{
-		rreverse_rotate(stack_a, stack_b, (size_b - idx_b) % size_b);
-		idx_a += (size_b - idx_b) % size_b;
+		rreverse_rotate(stack_a, stack_b, size_b - idx_b);
+		idx_a = (size_b - idx_b + idx_a) % size_a;
 		idx_b = 0;
 	}
 	rotate_to_top(idx_a, stack_a, idx_b, stack_b);
