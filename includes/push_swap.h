@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 09:51:50 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 11:36:36 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,20 @@ typedef struct s_stack
 int		parse_stack(t_stack *stack, char **numbers);
 
 // INSTRUCTIONS
-void	reverse_rotate_a(t_stack *stack_a);
-void	reverse_rotate_b(t_stack *stack_b);
+void	reverse_rotate_a(t_stack *stack_a, size_t times);
+void	reverse_rotate_b(t_stack *stack_b, size_t times);
 void	push_to_a(t_stack *stack_a, t_stack *stack_b);
 void	push_to_b(t_stack *stack_a, t_stack *stack_b);
 
+// COST
+size_t	rotate_to_top_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size_b);
+size_t	sync_rotate_up_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size_b);
+size_t	sync_rotate_down_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size_b);
+size_t	stack_insertion_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size_b);
+
 // STACK INSERTION
 size_t	stack_insertion_finder(int insert, t_stack *stack);
-size_t	stack_insertion_cost(size_t dst_size, size_t dst, size_t src_size, size_t src);
 
 // SORTING ALGORITHMN
-void	turk_algorithmn(size_t size_a, int stack_a[size_a], size_t size_b, int stack_b[size_b]);
 
 #endif

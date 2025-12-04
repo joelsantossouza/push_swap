@@ -6,11 +6,11 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 09:26:07 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 09:26:46 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 10:12:22 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "push_swap.h"
 
 static inline
 size_t	puttop_cost(size_t dst_size, size_t dst, size_t src_size, size_t src)
@@ -69,7 +69,7 @@ size_t	puttop_together_cost(size_t dst_size, size_t dst, size_t src_size, size_t
 	return (cost + puttop_cost(dst_size, dst, src_size, src));
 }
 
-size_t	stack_insertion(size_t dst_size, size_t dst, size_t src_size, size_t src)
+void	stack_insertion_align(size_t idx_a, t_stack *stack_a, size_t idx_b, t_stack *stack_b)
 {
 	const int	dst_half = dst <= (dst_size >> 1);
 	const int	src_half = src <= (src_size >> 1);
@@ -77,9 +77,9 @@ size_t	stack_insertion(size_t dst_size, size_t dst, size_t src_size, size_t src)
 	size_t		new_cost;
 
 	if (dst_half && src_half)
-		return (puttop_together_cost(dst_size, dst, src_size, src) + 1);
+		return (puttop_together(dst, dst_stack, src, src_stack));
 	if (!dst_half && !src_half)
-		return (rev_puttop_together_cost(dst_size, dst, src_size, src) + 1);
+		return (rev_puttop_together(dst, dst_stack, src, src_stack));
 	min_cost = puttop_together_cost(dst_size, dst, src_size, src);
 	new_cost = rev_puttop_together_cost(dst_size, dst, src_size, src);
 	if (new_cost < min_cost)
@@ -87,5 +87,4 @@ size_t	stack_insertion(size_t dst_size, size_t dst, size_t src_size, size_t src)
 	new_cost = puttop_cost(dst_size, dst, src_size, src);
 	if (new_cost < min_cost)
 		min_cost = new_cost;
-	return (min_cost + 1);
 }
