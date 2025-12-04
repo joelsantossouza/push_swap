@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 21:32:25 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:20:35 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	is_sorted(int *data, size_t size)
 {
 	if (size < 2)
 	  return (1);
-	while (size--)
+	while (size-- > 1)
 		if (data[size] < data[size - 1])
 			return (0);
 	return (1);

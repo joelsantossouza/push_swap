@@ -6,12 +6,13 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:06:39 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 22:12:17 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:13:41 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 int	main(int argc, char **argv)
 {
@@ -29,7 +30,10 @@ int	main(int argc, char **argv)
 	if (!b.data)
 		return (free(a.data), 3);
 	if (parse_stack(&a, argv + 1) < 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
 		return (free(a.data), free(b.data), 4);
+	}
 	turk_sort_algorithmn(&a, &b);
 	free(a.data);
 	free(b.data);
