@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 18:45:04 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 13:38:32 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:31:35 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	reverse_rotate(const char *motion, t_stack *stack, size_t times)
 
 int	rreverse_rotate(t_stack *stack_a, t_stack *stack_b, size_t times)
 {
-	const int	stats = reverse_rotate("", stack_a, times) * reverse_rotate("", stack_b, times);
+	const int	stats = reverse_rotate("", stack_a, times)
+		* reverse_rotate("", stack_b, times);
 
 	if (stats < 0)
 		return (-1);

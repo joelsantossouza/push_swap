@@ -6,13 +6,14 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 10:29:41 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 15:47:20 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:39:21 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-size_t	rotate_to_top_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size_b)
+size_t	rotate_to_top_cost(size_t idx_a, size_t size_a, size_t idx_b,
+			size_t size_b)
 {
 	size_t	cost;
 
@@ -27,7 +28,8 @@ size_t	rotate_to_top_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size
 	return (cost);
 }
 
-size_t	sync_rotate_up_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size_b)
+size_t	sync_rotate_up_cost(size_t idx_a, size_t size_a, size_t idx_b,
+			size_t size_b)
 {
 	size_t	cost;
 
@@ -46,7 +48,8 @@ size_t	sync_rotate_up_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t siz
 	return (cost + rotate_to_top_cost(idx_a, size_a, idx_b, size_b));
 }
 
-size_t	sync_rotate_down_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size_b)
+size_t	sync_rotate_down_cost(size_t idx_a, size_t size_a, size_t idx_b,
+			size_t size_b)
 {
 	size_t	cost;
 

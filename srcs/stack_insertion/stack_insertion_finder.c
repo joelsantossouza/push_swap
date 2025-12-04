@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 22:38:30 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 20:23:52 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 22:39:59 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ size_t	stack_insertion_finder(int insert, t_stack *stack, int flags)
 	if (get_closest_max_idx(stack->data, stack->size, insert, &closest) < 0)
 		return (closest);
 	size = closest;
-	if (flags == CLOSEST_LESS)
+	if (flags == LESS)
 	{
 		closest_max_value = insert - 1;
 		while (size-- && data[closest] < closest_max_value)
@@ -55,7 +55,7 @@ size_t	stack_insertion_finder(int insert, t_stack *stack, int flags)
 				closest = size;
 	}
 	else
-	{	
+	{
 		closest_max_value = insert + 1;
 		while (size-- && data[closest] > closest_max_value)
 			if (data[size] > insert && data[size] < data[closest])
