@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/03 22:45:12 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 09:08:02 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	turk_algorithmn(size_t size_a, int stack_a[size_a], size_t size_b, int stac
 	size_t	max_cost;
 	size_t	insertion_idx;
 
+	(void)new_cost;
+	(void)max_cost;
 	push_to_b(&size_b, stack_b, &size_a, stack_a);
 	push_to_b(&size_b, stack_b, &size_a, stack_a);
 	while (size_a > 3)

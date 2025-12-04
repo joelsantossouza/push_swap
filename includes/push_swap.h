@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/03 22:39:43 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 08:59:29 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	push_to_b(size_t *size_b, int stack_b[*size_b], size_t *size_a, int stack_a
 
 // STACK INSERTION
 size_t	stack_insertion_finder(int insert, size_t size, int stack[size]);
+size_t	stack_insertion_cost(size_t dst_size, size_t dst, size_t src_size, size_t src);
 
 // SORTING ALGORITHMN
 void	turk_algorithmn(size_t size_a, int stack_a[size_a], size_t size_b, int stack_b[size_b]);

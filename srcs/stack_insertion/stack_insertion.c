@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_insertion_cost.c                             :+:      :+:    :+:   */
+/*   stack_insertion.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 22:43:57 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 09:17:39 by joesanto         ###   ########.fr       */
+/*   Created: 2025/12/04 09:26:07 by joesanto          #+#    #+#             */
+/*   Updated: 2025/12/04 09:26:46 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ size_t	puttop_together_cost(size_t dst_size, size_t dst, size_t src_size, size_t
 	return (cost + puttop_cost(dst_size, dst, src_size, src));
 }
 
-size_t	stack_insertion_cost(size_t dst_size, size_t dst, size_t src_size, size_t src)
+size_t	stack_insertion(size_t dst_size, size_t dst, size_t src_size, size_t src)
 {
 	const int	dst_half = dst <= (dst_size >> 1);
 	const int	src_half = src <= (src_size >> 1);
