@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:06:39 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 15:57:53 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 20:42:08 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main(int argc, char **argv)
 		0,
 	};
 	parse_stack(&a, argv + 1);
+
+	//turk_sort_algorithmn(&a, &b);
 
 	size_t	i = -1;
 	while (++i < a.size || i < b.size)
