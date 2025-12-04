@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 10:27:41 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 12:04:52 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 12:48:33 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	rotate_to_top(size_t idx_a, t_stack *stack_a, size_t idx_b, t_stack *stack_b)
 {
 	if (idx_a <= (stack_a->size >> 1))
-		rotate_a(stack_a, idx_a);
+		rotate("ra\n", stack_a, idx_a);
 	else
-		reverse_rotate_a(stack_a, stack_a->size - idx_a);
+		reverse_rotate("rra\n", stack_a, stack_a->size - idx_a);
 	if (idx_b <= (stack_b->size >> 1))
-		rotate_b(stack_b, idx_b);
+		rotate("rb\n", stack_b, idx_b);
 	else
-		reverse_rotate_b(stack_b, stack_b->size - idx_b);
+		reverse_rotate("rrb\n", stack_b, stack_b->size - idx_b);
 }
 
 void	sync_rotate_up(size_t idx_a, t_stack *stack_a, size_t idx_b, t_stack *stack_b)
@@ -58,5 +58,5 @@ void	sync_rotate_down(size_t idx_a, t_stack *stack_a, size_t idx_b, t_stack *sta
 		idx_a += (size_b - idx_b) % size_b;
 		idx_b = 0;
 	}
-	return (cost + rotate_to_top_cost(idx_a, size_a, idx_b, size_b));
+	rotate_to_top(idx_a, stack_a, idx_b, stack_b);
 }

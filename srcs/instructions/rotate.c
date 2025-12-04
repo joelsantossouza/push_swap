@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 18:45:04 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 13:38:32 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 13:40:39 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "push_swap.h"
 #include <unistd.h>
 
-int	reverse_rotate(const char *motion, t_stack *stack, size_t times)
+int	rotate(const char *motion, t_stack *stack, size_t times)
 {
-	int	last_value;
+	int	first_value;
 	int	last_idx;
 
 	if (stack->size < 2)
@@ -24,21 +24,21 @@ int	reverse_rotate(const char *motion, t_stack *stack, size_t times)
 	last_idx = stack->size - 1;
 	while (times--)
 	{
-		last_value = stack->data[last_idx];
-		ft_memmove(stack->data + 1, stack->data, sizeof(int) * last_idx);
-		stack->data[0] = last_value;
+		first_value = stack->data[0];
+		ft_memmove(stack->data, stack->data + 1, sizeof(int) * last_idx);
+		stack->data[last_idx] = first_value;
 		ft_putstr_fd(motion, STDOUT_FILENO);
 	}
 	return (0);
 }
 
-int	rreverse_rotate(t_stack *stack_a, t_stack *stack_b, size_t times)
+int	rrotate(t_stack *stack_a, t_stack *stack_b, size_t times)
 {
-	const int	stats = reverse_rotate("", stack_a, times) * reverse_rotate("", stack_b, times);
+	const int	stats = rotate("", stack_a, times) * rotate("", stack_b, times);
 
 	if (stats < 0)
 		return (-1);
 	while (times--)
-		write(STDOUT_FILENO, "rrr\n", 4);
+		write(STDOUT_FILENO, "rr\n", 3);
 	return (0);
 }
