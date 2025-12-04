@@ -6,11 +6,12 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:23:12 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/03 13:19:46 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 09:34:09 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
 
 static inline
 int	ft_is_str_numeric(const char *str)
@@ -25,10 +26,11 @@ int	ft_is_str_numeric(const char *str)
 	return (1);
 }
 
-int	parse_stack(size_t size, int stack[size], char **numbers)
+int	parse_stack(t_stack *stack, char **numbers)
 {
-	size_t	i;
-	size_t	j;
+	const size_t	size = stack->size;
+	size_t			i;
+	size_t			j;
 
 	i = -1;
 	while (*numbers && ++i < size)
@@ -39,10 +41,10 @@ int	parse_stack(size_t size, int stack[size], char **numbers)
 			return (-1);
 		if (ft_nbrcmp(*numbers, "2147483647") > 0)
 			return (-1);
-		stack[i] = ft_atol_base(*numbers++, 0, "0123456789");
+		stack->data[i] = ft_atol_base(*numbers++, 0, "0123456789");
 		j = -1;
 		while (++j < i)
-			if (stack[j] == stack[i])
+			if (stack->data[j] == stack->data[i])
 				return (-1);
 	}
 	return (0);

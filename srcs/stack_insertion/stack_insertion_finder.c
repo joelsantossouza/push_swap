@@ -6,22 +6,25 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 22:38:30 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/03 22:38:51 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 09:51:30 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "push_swap.h"
 
-size_t	stack_insertion_finder(int insert, size_t size, int stack[size])
+size_t	stack_insertion_finder(int insert, t_stack *stack)
 {
+	const int	*data = stack->data;
 	const int	closest_max_value = insert - 1;
 	size_t		closest;
+	size_t		size;
 
-	while (size && stack[--size] > insert)
+	size = stack->size;
+	while (size && data[--size] > insert)
 		;
 	closest = size;
-	while (size-- && stack[closest] < closest_max_value)
-		if (stack[size] < insert && stack[size] > stack[closest])
+	while (size-- && data[closest] < closest_max_value)
+		if (data[size] < insert && data[size] > data[closest])
 			closest = size;
 	return (closest);
 }
