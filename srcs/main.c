@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:06:39 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 15:25:22 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 15:57:53 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,39 +26,36 @@ void	init_random(t_stack *stack)
 
 int	main(int argc, char **argv)
 {
-	if (argc != 3)
+	if (argc < 2)
 		return (1);
 	srand(time(0));
-	const size_t	size_a = atoi(argv[1]);
-	const size_t	size_b = atoi(argv[2]);
 	t_stack	a = {
-		malloc(sizeof(int) * size_a),
-		size_a,
+		malloc(sizeof(int) * argc - 1),
+		argc - 1,
 	};
 	t_stack	b = {
-		malloc(sizeof(int) * size_b),
-		size_b,
+		malloc(sizeof(int) * argc - 1),
+		0,
 	};
-	init_random(&a);
-	init_random(&b);
+	parse_stack(&a, argv + 1);
 
 	size_t	i = -1;
-	while (++i < size_a || i < size_b)
+	while (++i < a.size || i < b.size)
 	{
 		printf("%3lu) ", i);
-		printf(i < size_a ? "%5d " : "      ", a.data[i]);
-		printf(i < size_b ? "%5d " : "      ", b.data[i]);
+		printf(i < a.size ? "%5d " : "      ", a.data[i]);
+		printf(i < b.size ? "%5d " : "      ", b.data[i]);
 		printf("\n");
 	}
 
 	turk_sort_algorithmn(&a, &b);
 	i = -1;
 	printf("\n");
-	while (++i < size_a || i < size_b)
+	while (++i < a.size || i < b.size)
 	{
 		printf("%3lu) ", i);
-		printf(i < size_a ? "%5d " : "      ", a.data[i]);
-		printf(i < size_b ? "%5d " : "      ", b.data[i]);
+		printf(i < a.size ? "%5d " : "      ", a.data[i]);
+		printf(i < b.size ? "%5d " : "      ", b.data[i]);
 		printf("\n");
 	}
 	return (0);
