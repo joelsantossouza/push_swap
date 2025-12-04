@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 21:04:25 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:32:25 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,10 @@ void	last_three_elements_sort(t_stack *stack_a)
 	const size_t	size = stack_a->size;
 	const int		*data = stack_a->data;
 
-	if (size < 2)
-		return ;
-	if (data[0] > data[1])
-		swap_top("sa\n", stack_a);
 	if (size > 2)
 	{
+		if (data[0] > data[1] && data[0] > data[2])
+			rotate("ra\n", stack_a, 1);
 		if (data[0] > data[2])
 			reverse_rotate("rra\n", stack_a, 1);
 		if (data[1] > data[2])
@@ -60,6 +58,8 @@ void	last_three_elements_sort(t_stack *stack_a)
 			swap_top("sa\n", stack_a);
 		}
 	}
+	if (size > 1 && data[0] > data[1])
+		swap_top("sa\n", stack_a);
 }
 
 static inline
