@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 15:23:48 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:16:47 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define PUSH_SWAP_H
 
 # include <stddef.h>
+
+# define BELOW	0
+# define ABOVE	1
 
 typedef struct s_stack
 {
@@ -45,7 +48,7 @@ size_t	sync_rotate_down_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t s
 size_t	stack_insertion_cost(size_t idx_a, size_t size_a, size_t idx_b, size_t size_b);
 
 // STACK INSERTION
-size_t	stack_insertion_finder(int insert, t_stack *stack);
+size_t	stack_insertion_finder(int insert, t_stack *stack, int flags);
 void	stack_insertion_align(size_t idx_a, t_stack *stack_a, size_t idx_b, t_stack *stack_b);
 
 // SORTING ALGORITHMN

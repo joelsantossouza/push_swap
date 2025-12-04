@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 15:26:28 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:48:08 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	cheapest_insertion_align(t_stack *dst, t_stack *src, size_t *dst_idx, size_
 
 	src_size = src->size;
 	*src_idx = --src_size;
-	*dst_idx = stack_insertion_finder(src->data[src_size], dst);
+	*dst_idx = stack_insertion_finder(src->data[src_size], dst, BELOW);
 	min_cost = stack_insertion_cost(src_size, src->size, *dst_idx, dst->size);
 	while (src_size-- && min_cost > 1)
 	{
-		new_dst_idx = stack_insertion_finder(src->data[src_size], dst);
+		new_dst_idx = stack_insertion_finder(src->data[src_size], dst, BELOW);
 		new_cost = stack_insertion_cost(src_size, src->size, new_dst_idx, dst->size);
 		if (new_cost < min_cost)
 		{
@@ -59,11 +59,44 @@ void	last_three_elements_sort(t_stack *stack_a)
 	}
 }
 
+static inline
+size_t	get_min_value_idx(int *data, size_t size)
+{
+	size_t	min_value_idx;
+	int		min_value;
+
+	min_value_idx = size - (size != 0);
+	min_value = data[min_value_idx];
+	while (size--)
+	{
+		if (data[size] < min_value)
+		{
+			min_value_idx = size;
+			min_value = data[size];
+		}
+	}
+	return (min_value_idx);
+}
+
+static inline
+int	is_sorted(int *data, size_t size)
+{
+	if (size < 2)
+	  return (1);
+	while (size--)
+		if (data[size] < data[size - 1])
+			return (0);
+	return (1);
+}
+
 void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b)
 {
 	size_t	idx_a;
 	size_t	idx_b;
+	size_t	min_value_idx;
 
+	if (is_sorted(stack_a->data, stack_a->size))
+		return ;
 	if (stack_a->size > 3)
 		push_to("pb\n", stack_b, stack_a);
 	if (stack_a->size > 3)
@@ -75,4 +108,12 @@ void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b)
 		push_to("pb\n", stack_b, stack_a);
 	}
 	last_three_elements_sort(stack_a);
+	while (stack_b->size)
+	{
+		idx_a = stack_insertion_finder(stack_b->data[0], stack_a, ABOVE);
+		stack_insertion_align((idx_a + 1) % stack_a->size, stack_a, 0, stack_b);
+		push_to("pa\n", stack_a, stack_b);
+	}
+	min_value_idx = get_min_value_idx(stack_a->data, stack_a->size);
+	rotate_to_top(min_value_idx, stack_a, 0, stack_b);
 }
