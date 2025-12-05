@@ -6,37 +6,40 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:57:38 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 23:23:30 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 10:55:39 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 static inline
 int	exec_instruction(const char *name, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(name, "sa\n") == 0)
-		return (sa(a), 0);
+		return (swap_top("", a), 0);
 	if (ft_strcmp(name, "sb\n") == 0)
-		return (sb(b), 0);
+		return (swap_top("", b), 0);
 	if (ft_strcmp(name, "ss\n") == 0)
-		return (ss(a, b), 0);
+		return (sswap_top("", a, b), 0);
 	if (ft_strcmp(name, "pa\n") == 0)
-		return (pa(a, b));
+		return (push_to("", a, b));
 	if (ft_strcmp(name, "pb\n") == 0)
-		return (pb(a, b));
+		return (push_to("", b, a));
 	if (ft_strcmp(name, "ra\n") == 0)
-		return (ra(a));
+		return (rotate("", a, 1));
 	if (ft_strcmp(name, "rb\n") == 0)
-		return (rb(b));
+		return (rotate("", b, 1));
 	if (ft_strcmp(name, "rr\n") == 0)
-		return (rr(a, b));
+		return (rrotate("", a, b, 1));
 	if (ft_strcmp(name, "rra\n") == 0)
-		return (rra(a));
+		return (reverse_rotate("", a, 1));
 	if (ft_strcmp(name, "rrb\n") == 0)
-		return (rrb(b));
+		return (reverse_rotate("", b, 1));
 	if (ft_strcmp(name, "rrr\n") == 0)
-		return (rrr(a, b));
+		return (rreverse_rotate("", a, b, 1));
 	return (-1);
 }
 
@@ -57,7 +60,7 @@ int	push_swap_checker(t_stack *a, t_stack *b)
 		if (ft_getline(&line, STDIN_FILENO) < 0)
 			return (-1);
 	}
-	if (!is_sort(a) || b->size > 0)
+	if (!is_sorted(a->data, a->size) || b->size > 0)
 	{
 		write(STDOUT_FILENO, "KO\n", 3);
 		return (0);

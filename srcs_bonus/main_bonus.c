@@ -6,11 +6,12 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:06:39 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 22:56:39 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 10:59:47 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "checker_bonus.h"
 #include <stdlib.h>
 #include <unistd.h>
 
