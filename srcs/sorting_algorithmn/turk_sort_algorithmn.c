@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 22:38:15 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 10:23:44 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,6 @@ size_t	get_min_value_idx(int *data, size_t size)
 		}
 	}
 	return (min_value_idx);
-}
-
-static inline
-int	is_sorted(int *data, size_t size)
-{
-	if (size < 2)
-		return (1);
-	while (size-- > 1)
-		if (data[size] < data[size - 1])
-			return (0);
-	return (1);
 }
 
 void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b)

@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 10:27:41 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 22:32:08 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 10:34:33 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	sync_rotate_up(size_t idx_a, t_stack *stack_a, size_t idx_b,
 {
 	if (idx_a < idx_b)
 	{
-		rrotate(stack_a, stack_b, idx_a);
+		rrotate("rr\n", stack_a, stack_b, idx_a);
 		idx_b -= idx_a;
 		idx_a = 0;
 	}
 	else
 	{
-		rrotate(stack_a, stack_b, idx_b);
+		rrotate("rr\n", stack_a, stack_b, idx_b);
 		idx_a -= idx_b;
 		idx_b = 0;
 	}
@@ -53,13 +53,13 @@ void	sync_rotate_down(size_t idx_a, t_stack *stack_a, size_t idx_b,
 		return ;
 	else if (idx_a > idx_b)
 	{
-		rreverse_rotate(stack_a, stack_b, size_a - idx_a);
+		rreverse_rotate("rrr\n", stack_a, stack_b, size_a - idx_a);
 		idx_b = (size_a - idx_a + idx_b) % size_b;
 		idx_a = 0;
 	}
 	else
 	{
-		rreverse_rotate(stack_a, stack_b, size_b - idx_b);
+		rreverse_rotate("rrr\n", stack_a, stack_b, size_b - idx_b);
 		idx_a = (size_b - idx_b + idx_a) % size_a;
 		idx_b = 0;
 	}

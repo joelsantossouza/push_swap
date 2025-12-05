@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 22:35:09 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 10:32:10 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int		parse_stack(t_stack *stack, char **numbers);
 int		swap_top(const char *motion, t_stack *stack);
 int		push_to(const char *motion, t_stack *dst, t_stack *src);
 int		rotate(const char *motion, t_stack *stack, size_t times);
-int		rrotate(t_stack *stack_a, t_stack *stack_b, size_t times);
+int		rrotate(const char *motion, t_stack *stack_a, t_stack *stack_b, size_t times);
 int		reverse_rotate(const char *motion, t_stack *stack, size_t times);
-int		rreverse_rotate(t_stack *stack_a, t_stack *stack_b, size_t times);
+int		rreverse_rotate(const char *motion, t_stack *stack_a, t_stack *stack_b, size_t times);
 
 void	rotate_to_top(size_t idx_a, t_stack *stack_a, size_t idx_b,
 			t_stack *stack_b);
@@ -60,6 +60,7 @@ void	stack_insertion_align(size_t idx_a, t_stack *stack_a, size_t idx_b,
 			t_stack *stack_b);
 
 // SORTING ALGORITHMN
+int		is_sorted(int *data, size_t size);
 void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b);
 
 #endif
