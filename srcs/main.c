@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:06:39 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 16:08:01 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 16:34:33 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,14 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (1);
-	a.size = argc - 1;
-	a.data = malloc(sizeof(int) * (argc - 1));
-	if (!a.data)
-		return (2);
-	b.size = 0;
-	b.data = malloc(sizeof(int) * (argc - 1));
-	if (!b.data)
-		return (free(a.data), 3);
 	if (argc == 2 && parse_stack_str(&a, *(argv + 1)) < 0)
-		return (free(a.data), free(b.data), 4);
-	if (argc > 2 && parse_stack_lst(&a, argv + 1) < 0)
-		return (free(a.data), free(b.data), 5);
+		return (2);
+	if (argc > 2 && parse_stack_lst(&a, argc - 1, argv + 1) < 0)
+		return (3);
+	b.size = 0;
+	b.data = malloc(sizeof(int) * (a.size));
+	if (!b.data)
+		return (free(a.data), 4);
 	turk_sort_algorithmn(&a, &b);
 	free(a.data);
 	free(b.data);

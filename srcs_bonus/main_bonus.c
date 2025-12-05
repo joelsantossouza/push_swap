@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:06:39 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 16:11:11 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 16:35:57 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,18 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (2);
-	a.size = argc - 1;
-	a.data = malloc(sizeof(int) * (argc - 1));
-	if (!a.data)
-		return (3);
-	b.size = 0;
-	b.data = malloc(sizeof(int) * (argc - 1));
-	if (!b.data)
-		return (free(a.data), 4);
 	if (argc == 2 && parse_stack_str(&a, *(argv + 1)) < 0)
-		return (free(a.data), free(b.data), 5);
-	if (argc > 2 && parse_stack_lst(&a, argv + 1) < 0)
-		return (free(a.data), free(b.data), 6);
+		return (3);
+	if (argc > 2 && parse_stack_lst(&a, argc - 1, argv + 1) < 0)
+		return (4);
+	b.size = 0;
+	b.data = malloc(sizeof(int) * (a.size));
+	if (!b.data)
+		return (free(a.data), 5);
 	stats = push_swap_checker(&a, &b);
 	free(a.data);
 	free(b.data);
 	if (stats < 0)
-		return (7);
+		return (6);
 	return (stats);
 }

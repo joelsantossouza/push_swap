@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 16:04:42 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 16:32:15 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef void	(*t_align_to_top)(size_t, t_stack *, size_t, t_stack *);
 
 // PARSING
 int		error(void);
-int		parse_stack_lst(t_stack *stack, char **numbers);
+int		parse_stack_lst(t_stack *stack, size_t size, char **numbers);
 int		parse_stack_str(t_stack *stack, char *numbers);
 
 // INSTRUCTIONS
