@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 18:45:04 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 10:30:45 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 11:58:51 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	rotate(const char *motion, t_stack *stack, size_t times)
 	return (0);
 }
 
-int	rrotate(const char *motion, t_stack *stack_a, t_stack *stack_b, size_t times)
+int	rrotate(const char *motion, t_stack *stack_a, t_stack *stack_b,
+		size_t times)
 {
 	const int	stats = rotate("", stack_a, times) * rotate("", stack_b, times);
 
