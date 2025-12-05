@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_checker.c                                :+:      :+:    :+:   */
+/*   push_swap_checker_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:57:38 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 10:55:39 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 11:01:07 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	push_swap_checker(t_stack *a, t_stack *b)
 	if (!is_sorted(a->data, a->size) || b->size > 0)
 	{
 		write(STDOUT_FILENO, "KO\n", 3);
-		return (0);
+		return (1);
 	}
 	write(STDOUT_FILENO, "OK\n", 3);
-	return (1);
+	return (0);
 }
