@@ -6,7 +6,7 @@
 #    By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 18:19:34 by joesanto          #+#    #+#              #
-#    Updated: 2025/12/04 15:26:57 by joesanto         ###   ########.fr        #
+#    Updated: 2025/12/05 10:42:08 by joesanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ PARSING_DIR = $(SRCS_DIR)/parsing
 PARSING = $(PARSING_DIR)/parse_stack.c
 
 SORTING_ALGORITHMN_DIR = $(SRCS_DIR)/sorting_algorithmn
-SORTING_ALGORITHMN = $(SORTING_ALGORITHMN_DIR)/turk_sort_algorithmn.c
+SORTING_ALGORITHMN = $(addprefix $(SORTING_ALGORITHMN_DIR)/, turk_sort_algorithmn.c \
+					 is_sorted.c)
 
 INSTRUCTIONS_DIR = $(SRCS_DIR)/instructions
 INSTRUCTIONS = $(addprefix $(INSTRUCTIONS_DIR)/, rotate.c reverse_rotate.c push_to.c \
