@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_stack.c                                      :+:      :+:    :+:   */
+/*   parse_stack_lst.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:23:12 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/04 09:34:09 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 16:05:19 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_is_str_numeric(const char *str)
 	return (1);
 }
 
-int	parse_stack(t_stack *stack, char **numbers)
+int	parse_stack_lst(t_stack *stack, char **numbers)
 {
 	const size_t	size = stack->size;
 	size_t			i;
@@ -36,16 +36,16 @@ int	parse_stack(t_stack *stack, char **numbers)
 	while (*numbers && ++i < size)
 	{
 		if (!ft_is_str_numeric(*numbers))
-			return (-1);
+			return (error(), -1);
 		if (ft_nbrcmp(*numbers, "-2147483648") < 0)
-			return (-1);
+			return (error(), -1);
 		if (ft_nbrcmp(*numbers, "2147483647") > 0)
-			return (-1);
+			return (error(), -1);
 		stack->data[i] = ft_atol_base(*numbers++, 0, "0123456789");
 		j = -1;
 		while (++j < i)
 			if (stack->data[j] == stack->data[i])
-				return (-1);
+				return (error(), -1);
 	}
 	return (0);
 }

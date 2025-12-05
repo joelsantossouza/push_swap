@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:57:38 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 11:01:07 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/05 16:13:00 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ int	push_swap_checker(t_stack *a, t_stack *b)
 	while (line)
 	{
 		if (exec_instruction(line, a, b) < 0)
-		{
-			write(STDERR_FILENO, "Error\n", 6);
-			return (free(line), -1);
-		}
+			return (error(), free(line), -1);
 		if (ft_getline(&line, STDIN_FILENO) < 0)
 			return (-1);
 	}
