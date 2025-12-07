@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 12:23:12 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 16:29:50 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:05:08 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static inline
 int	ft_is_str_numeric(const char *str)
 {
 	str += *str == '-' || *str == '+';
+	if (!*str)
+		return (0);
 	while (*str)
 	{
 		if (*str < '0' || *str > '9')
