@@ -6,14 +6,14 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 16:32:15 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/07 12:33:56 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stddef.h>
+# include <sys/types.h>
 
 # define LESS		0
 # define GREATER	1
@@ -60,7 +60,7 @@ size_t	stack_insertion_cost(size_t idx_a, size_t size_a, size_t idx_b,
 			size_t size_b);
 
 // STACK INSERTION
-size_t	stack_insertion_finder(int insert, t_stack *stack, int flags);
+ssize_t	stack_insertion_finder(int insert, t_stack *stack);
 void	stack_insertion_align(size_t idx_a, t_stack *stack_a, size_t idx_b,
 			t_stack *stack_b);
 
