@@ -6,15 +6,16 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 22:38:30 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/07 13:09:28 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:05:17 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-ssize_t	stack_insertion_finder(int insert, t_stack *stack)
+ssize_t	smallest_greater(int insert, t_stack *stack)
 {
 	const int	*data = stack->data;
+	const int	closest_max_value = insert + 1;
 	size_t		size;
 	size_t		min;
 	size_t		closest;
@@ -33,8 +34,36 @@ ssize_t	stack_insertion_finder(int insert, t_stack *stack)
 			return (min);
 	}
 	closest = size;
-	while (size--)
+	while (size-- && data[closest] > closest_max_value)
 		if (data[size] > insert && data[size] < data[closest])
+			closest = size;
+	return (closest);
+}
+
+ssize_t	greatest_smaller(int insert, t_stack *stack)
+{
+	const int	*data = stack->data;
+	const int	closest_max_value = insert - 1;
+	size_t		size;
+	size_t		max;
+	size_t		closest;
+
+	size = stack->size;
+	if (!size)
+		return (-1);
+	max = --size;
+	while (1)
+	{
+		if (data[size] < insert)
+			break ;
+		if (data[size] > data[max])
+			max = size;
+		if (!size--)
+			return (max);
+	}
+	closest = size;
+	while (size-- && data[closest] < closest_max_value)
+		if (data[size] < insert && data[size] > data[closest])
 			closest = size;
 	return (closest);
 }

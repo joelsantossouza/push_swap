@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/07 12:33:56 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:05:48 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ size_t	stack_insertion_cost(size_t idx_a, size_t size_a, size_t idx_b,
 			size_t size_b);
 
 // STACK INSERTION
-ssize_t	stack_insertion_finder(int insert, t_stack *stack);
+ssize_t	smallest_greater(int insert, t_stack *stack);
+ssize_t	greatest_smaller(int insert, t_stack *stack);
 void	stack_insertion_align(size_t idx_a, t_stack *stack_a, size_t idx_b,
 			t_stack *stack_b);
 
