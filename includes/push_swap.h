@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/08 00:32:14 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/08 01:06:22 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 }	t_stack;
 
 typedef void	(*t_align_to_top)(size_t, t_stack *, size_t, t_stack *);
+typedef ssize_t	(*t_stack_find)(int, t_stack *);
 
 // PARSING
 int		error(void);

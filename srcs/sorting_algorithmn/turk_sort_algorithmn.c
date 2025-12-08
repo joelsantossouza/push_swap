@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/08 00:33:01 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/08 01:13:30 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,37 @@ void	cheapest_push_to_b(t_stack *stack_a, t_stack *stack_b)
 	stack_insertion_align(idx[0], stack_a, idx[1], stack_b);
 	push_to("pb\n", stack_b, stack_a);
 }
+
+static inline
+void	cheapest_push_to_a(t_stack *stack_a, t_stack *stack_b)
+{
+	size_t	idx[2];
+	size_t	min_cost;
+	size_t	new_cost;
+	size_t	new_idx;
+	size_t	size_b;
+
+	size_b = stack_b->size;
+	idx[1] = --size_b;
+	idx[0] = smallest_greater(stack_b->data[size_b], stack_a);
+	min_cost = stack_insertion_cost(idx[0], stack_a->size,
+			size_b, stack_b->size);
+	while (size_b-- && min_cost > 1)
+	{
+		new_idx = smallest_greater(stack_b->data[size_b], stack_a);
+		new_cost = stack_insertion_cost(new_idx, stack_a->size,
+				size_b, stack_b->size);
+		if (new_cost <= min_cost)
+		{
+			min_cost = new_cost;
+			idx[1] = size_b;
+			idx[0] = new_idx;
+		}
+	}
+	stack_insertion_align(idx[0], stack_a, idx[1], stack_b);
+	push_to("pa\n", stack_a, stack_b);
+}
+
 
 static inline
 void	last_three_elements_sort(t_stack *stack_a)
@@ -91,7 +122,6 @@ ssize_t	get_min(int *data, size_t size)
 void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b)
 {
 	size_t	min_value_idx;
-	size_t	idx;
 
 	if (is_sorted(stack_a->data, stack_a->size))
 		return ;
@@ -104,11 +134,7 @@ void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a->size <= 3)
 		last_three_elements_sort(stack_a);
 	while (stack_b->size)
-	{
-		idx = smallest_greater(stack_b->data[0], stack_a);
-		stack_insertion_align(idx, stack_a, 0, stack_b);
-		push_to("pa\n", stack_a, stack_b);
-	}
+		cheapest_push_to_a(stack_a, stack_b);
 	min_value_idx = get_min(stack_a->data, stack_a->size);
 	rotate_to_top(min_value_idx, stack_a, 0, stack_b);
 }
