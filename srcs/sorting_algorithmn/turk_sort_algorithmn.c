@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/07 23:05:31 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/07 23:59:43 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	cheapest_push_to_b(t_stack *stack_a, t_stack *stack_b)
 		new_idx = greatest_smaller(stack_a->data[size_a], stack_b);
 		new_cost = stack_insertion_cost(size_a, stack_a->size,
 				new_idx, stack_b->size);
-		if (new_cost < min_cost)
+		if (new_cost <= min_cost)
 		{
 			min_cost = new_cost;
 			idx[0] = size_a;
@@ -99,9 +99,10 @@ void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b)
 		push_to("pb\n", stack_b, stack_a);
 	if (stack_a->size > 3)
 		push_to("pb\n", stack_b, stack_a);
-	while (stack_a->size > 3)
+	while (stack_a->size > 3 && !is_sorted(stack_a->data, stack_a->size))
 		cheapest_push_to_b(stack_a, stack_b);
-	last_three_elements_sort(stack_a);
+	if (stack_a->size <= 3)
+		last_three_elements_sort(stack_a);
 	while (stack_b->size)
 	{
 		idx = smallest_greater(stack_b->data[0], stack_a);
