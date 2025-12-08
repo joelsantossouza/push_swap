@@ -6,7 +6,7 @@
 #    By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 18:19:34 by joesanto          #+#    #+#              #
-#    Updated: 2025/12/08 00:33:31 by joesanto         ###   ########.fr        #
+#    Updated: 2025/12/08 19:17:25 by joesanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ HEADERS = $(HEADERS_DIR)/push_swap.h
 OBJS = $(MAIN:.c=.o) $(PARSING:.c=.o) $(SORTING_ALGORITHMN:.c=.o) $(INSTRUCTIONS:.c=.o) \
 	$(STACK_INSERTION:.c=.o) $(COST:.c=.o)
 OBJS_BONUS = $(MAIN_BONUS:.c=.o) $(PARSING:.c=.o) $(CHECKER:.c=.o) $(INSTRUCTIONS:.c=.o) \
-	$(SORTING_ALGORITHMN_DIR)/is_sorted.c
+	$(SORTING_ALGORITHMN_DIR)/is_sorted.o
 LIBS_DIR = libs
 LIBFT = $(LIBS_DIR)/libft/libft.a
 INCLUDES = $(addprefix -I, $(LIBS_DIR)/libft $(HEADERS_DIR))
