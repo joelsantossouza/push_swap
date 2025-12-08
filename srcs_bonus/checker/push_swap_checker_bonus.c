@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 22:57:38 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/05 16:13:00 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/08 18:48:33 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ int	exec_instruction(const char *name, t_stack *a, t_stack *b)
 	if (ft_strcmp(name, "ss\n") == 0)
 		return (sswap_top("", a, b), 0);
 	if (ft_strcmp(name, "pa\n") == 0)
-		return (push_to("", a, b));
+		return (push_to("", a, b), 0);
 	if (ft_strcmp(name, "pb\n") == 0)
-		return (push_to("", b, a));
+		return (push_to("", b, a), 0);
 	if (ft_strcmp(name, "ra\n") == 0)
-		return (rotate("", a, 1));
+		return (rotate("", a, 1), 0);
 	if (ft_strcmp(name, "rb\n") == 0)
-		return (rotate("", b, 1));
+		return (rotate("", b, 1), 0);
 	if (ft_strcmp(name, "rr\n") == 0)
-		return (rrotate("", a, b, 1));
+		return (rrotate("", a, b, 1), 0);
 	if (ft_strcmp(name, "rra\n") == 0)
-		return (reverse_rotate("", a, 1));
+		return (reverse_rotate("", a, 1), 0);
 	if (ft_strcmp(name, "rrb\n") == 0)
-		return (reverse_rotate("", b, 1));
+		return (reverse_rotate("", b, 1), 0);
 	if (ft_strcmp(name, "rrr\n") == 0)
-		return (rreverse_rotate("", a, b, 1));
+		return (rreverse_rotate("", a, b, 1), 0);
 	return (-1);
 }
 
