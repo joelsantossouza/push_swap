@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/08 01:13:30 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/08 19:24:23 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	cheapest_push_to_a(t_stack *stack_a, t_stack *stack_b)
 	stack_insertion_align(idx[0], stack_a, idx[1], stack_b);
 	push_to("pa\n", stack_a, stack_b);
 }
-
 
 static inline
 void	last_three_elements_sort(t_stack *stack_a)
