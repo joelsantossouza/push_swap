@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:03:26 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/08 00:11:11 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/08 00:32:14 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define PUSH_SWAP_H
 
 # include <sys/types.h>
-
-# define LESS		0
-# define GREATER	1
 
 typedef struct s_stack
 {
@@ -60,7 +57,6 @@ size_t	stack_insertion_cost(size_t idx_a, size_t size_a, size_t idx_b,
 			size_t size_b);
 
 // STACK INSERTION
-int		is_stack_sorted(t_stack *stack);
 ssize_t	smallest_greater(int insert, t_stack *stack);
 ssize_t	greatest_smaller(int insert, t_stack *stack);
 void	stack_insertion_align(size_t idx_a, t_stack *stack_a, size_t idx_b,
@@ -68,7 +64,6 @@ void	stack_insertion_align(size_t idx_a, t_stack *stack_a, size_t idx_b,
 
 // SORTING ALGORITHMN
 int		is_sorted(int *data, size_t size);
-ssize_t	get_min(int *data, size_t size);
 void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b);
 
 #endif

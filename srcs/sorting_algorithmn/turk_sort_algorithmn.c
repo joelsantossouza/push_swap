@@ -6,7 +6,7 @@
 /*   By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:28:05 by joesanto          #+#    #+#             */
-/*   Updated: 2025/12/08 00:06:14 by joesanto         ###   ########.fr       */
+/*   Updated: 2025/12/08 00:33:01 by joesanto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,27 @@ void	last_three_elements_sort(t_stack *stack_a)
 		swap_top("sa\n", stack_a);
 }
 
+static inline
+ssize_t	get_min(int *data, size_t size)
+{
+	size_t	min_value_idx;
+	int		min_value;
+
+	if (!size)
+		return (-1);
+	min_value_idx = --size;
+	min_value = data[min_value_idx];
+	while (size--)
+	{
+		if (data[size] < min_value)
+		{
+			min_value_idx = size;
+			min_value = data[size];
+		}
+	}
+	return (min_value_idx);
+}
+
 void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b)
 {
 	size_t	min_value_idx;
@@ -78,7 +99,7 @@ void	turk_sort_algorithmn(t_stack *stack_a, t_stack *stack_b)
 		push_to("pb\n", stack_b, stack_a);
 	if (stack_a->size > 3)
 		push_to("pb\n", stack_b, stack_a);
-	while (stack_a->size > 3 && !is_stack_sorted(stack_a))
+	while (stack_a->size > 3 && !is_sorted(stack_a->data, stack_a->size))
 		cheapest_push_to_b(stack_a, stack_b);
 	if (stack_a->size <= 3)
 		last_three_elements_sort(stack_a);

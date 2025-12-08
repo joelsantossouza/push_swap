@@ -6,7 +6,7 @@
 #    By: joesanto <joesanto@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/02 18:19:34 by joesanto          #+#    #+#              #
-#    Updated: 2025/12/08 00:11:57 by joesanto         ###   ########.fr        #
+#    Updated: 2025/12/08 00:33:31 by joesanto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ PARSING = $(addprefix $(PARSING_DIR)/, parse_stack_str.c parse_stack_lst.c \
 
 SORTING_ALGORITHMN_DIR = $(SRCS_DIR)/sorting_algorithmn
 SORTING_ALGORITHMN = $(addprefix $(SORTING_ALGORITHMN_DIR)/, turk_sort_algorithmn.c \
-					 is_sorted.c get_min.c)
+					 is_sorted.c)
 
 INSTRUCTIONS_DIR = $(SRCS_DIR)/instructions
 INSTRUCTIONS = $(addprefix $(INSTRUCTIONS_DIR)/, rotate.c reverse_rotate.c push_to.c \
@@ -32,7 +32,7 @@ INSTRUCTIONS = $(addprefix $(INSTRUCTIONS_DIR)/, rotate.c reverse_rotate.c push_
 
 STACK_INSERTION_DIR = $(SRCS_DIR)/stack_insertion
 STACK_INSERTION = $(addprefix $(STACK_INSERTION_DIR)/, stack_insertion_finder.c \
-				  stack_insertion_align.c is_stack_sorted.c)
+				  stack_insertion_align.c)
 
 COST_DIR = $(SRCS_DIR)/cost
 COST = $(addprefix $(COST_DIR)/, rotate_to_top_cost.c stack_insertion_cost.c)
