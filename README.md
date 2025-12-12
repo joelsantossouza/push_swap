@@ -134,7 +134,7 @@ Element 6: index 1 in a → insert below 8 → cost = 3 (ra + rb + pb)
 Element 5: index 2 in a → insert below 8 → cost = 4 (2×ra + rb + pb)
 Element 7: index 3 in a → insert below 8 → cost = 3 (rra + rb + pb)
 
-Best choice: 4
+Best choice: Element 4
 ```
 
 **Execute: rb, pb**
